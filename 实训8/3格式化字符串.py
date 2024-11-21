@@ -1,0 +1,6 @@
+day = input('今天是星期__：')
+Temp = input('温度是__℃：')
+Air = input('空气质量：')
+print('今天是星期%s，温度%s℃，空气质量%s'%(day,Temp,Air))
+print('今天是星期{}，温度{}℃，空气质量{}'.format(day,Temp,Air))
+print(f'今天是星期{day}，温度{Temp}℃，空气质量{Air}')
