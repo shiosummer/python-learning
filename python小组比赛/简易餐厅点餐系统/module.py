@@ -1,10 +1,7 @@
-import csv
-
 date = 'dishes.txt'
-order = {
-    "items": [],  # 存储已点菜品的信息，如 {"dish_name": "宫保鸡丁", "quantity": 2}
-    "total_price": 0  # 总价
-}
+order = {"items": [],"total_price": 0}
+# 存储已点菜品的信息，如 {"dish_name": "宫保鸡丁", "quantity": 2}
+#计算总价
 
 def load_dishes():
     dishes = []
@@ -43,7 +40,7 @@ def edit_price(name, price, stock):
 ###修改菜品的价格和库存并保存到列表dishes和dishes.txt中###
 
 def view_menu():
-    print_tpye=int(input('请选择您需要的菜单排序方式\n1.原始菜单\n2.按价格排序\n3.按菜品排序\n'))
+    print_tpye=int(input('菜单排序方式：\n1.原始菜单\n2.按价格排序\n3.按菜品排序\n请输入您需要的菜单排序方式：'))
     if print_tpye == 1:
         for dish in dishes:
             print(f'{dish["name"]} 价格-{dish["price"]} 库存-{dish["stock"]}')
@@ -55,3 +52,20 @@ def view_menu():
         sorted_dishes = sorted(dishes, key=lambda dish: dish["name"])
         for dish in sorted_dishes:
             print(f'{dish["name"]} 价格-{dish["price"]} 库存-{dish["stock"]}')
+###选择菜单排序方式###
+
+def order_menu(name,quantity):
+    for dish in dishes:
+        if dish['name'] == name:
+            if quantity > dish['stock']:
+                print('库存不足，点餐失败')
+                return
+            dish['stock'] -= quantity
+            order["items"].append({"name": name, "quantity": quantity, "price": dish["price"]})
+            order["total_price"] += quantity * dish["price"]
+            save_dishes()
+            print(f'点餐成功：{name}×{quantity}')
+            return
+        else:
+            print('未找到菜品，请重新点餐')
+###定义点餐函数，判断库存是否足够并减去库存，以及计算总价###
