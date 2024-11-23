@@ -14,7 +14,6 @@ def load_dishes():
             dishes.append({"name":name,"price":float(price),"stock":int(stock)})
     return dishes
 dishes = load_dishes()
-print(dishes)
 ###读取已保存的菜品###
 
 def save_dishes():
@@ -42,3 +41,17 @@ def edit_price(name, price, stock):
             return
     print(f"未找到名为 {name} 的菜品。")
 ###修改菜品的价格和库存并保存到列表dishes和dishes.txt中###
+
+def view_menu():
+    print_tpye=int(input('请选择您需要的菜单排序方式\n1.原始菜单\n2.按价格排序\n3.按菜品排序\n'))
+    if print_tpye == 1:
+        for dish in dishes:
+            print(f'{dish["name"]} 价格-{dish["price"]} 库存-{dish["stock"]}')
+    elif print_tpye == 2:
+        sorted_dishes = sorted(dishes, key=lambda dish: dish["price"])
+        for dish in sorted_dishes:
+            print(f'{dish["name"]} 价格-{dish["price"]} 库存-{dish["stock"]}')
+    elif print_tpye == 3:
+        sorted_dishes = sorted(dishes, key=lambda dish: dish["name"])
+        for dish in sorted_dishes:
+            print(f'{dish["name"]} 价格-{dish["price"]} 库存-{dish["stock"]}')
