@@ -1,7 +1,6 @@
 # main.py
 from model import load_dishes, save_dishes, add_dish, view_menu, place_order, cancel_order, check_out
 
-
 def main():
     dishes = load_dishes()  # 加载菜品数据
     print("欢迎使用餐厅点餐系统！")
