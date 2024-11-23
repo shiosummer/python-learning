@@ -1,4 +1,4 @@
-date = 'dishes.txt'
+data = 'dishes.txt'
 order = {"items": [],"total_price": 0}
 # 存储已点菜品的信息，如 {"dish_name": "宫保鸡丁", "quantity": 2}
 #计算总价
