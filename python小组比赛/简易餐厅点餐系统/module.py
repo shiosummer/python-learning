@@ -68,4 +68,30 @@ def order_menu(name,quantity):
             return
         else:
             print('未找到菜品，请重新点餐')
+name='宫保鸡丁'
+quantity=3
+order_menu(name,quantity)
+print(order)
 ###定义点餐函数，判断库存是否足够并减去库存，以及计算总价###
+
+def cancel_order(name,cancel_quantity):
+    for item in order["items"]:
+        if item['name'] == name:
+            quantity = item['quantity'] - cancel_quantity
+            order["total_price"] -= item['price'] * cancel_quantity
+            if quantity > 0:
+                item["quantity"] = quantity
+                return
+            else:
+                order['items'].remove(item)
+                order["total_price"] -= item['price']*cancel_quantity
+                return
+        for dish in dishes:
+            if dish['name'] == name:
+                dish['stock'] += cancel_quantity
+                save_dishes()
+                print(f'取消点餐成功：{name}×{cancel_quantity}')
+                return
+        else:
+            print('未找到已点菜品，取消点餐失败')
+###确定取消某菜品点餐的数量，并计算剩余还需支付的价格###
