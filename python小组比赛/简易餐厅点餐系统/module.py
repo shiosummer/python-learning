@@ -122,7 +122,7 @@ def load_main_menu():
 ###制作一个假进度条载入主菜单###
 
 def exit_system():
-    print("感谢使用Lumine点餐系统，再见！")
+    print("\n感谢使用Lumine点餐系统，再见！")
     save_dishes()  # 退出时保存菜品数据
     exit()
 ###退出点菜系统主菜单###
