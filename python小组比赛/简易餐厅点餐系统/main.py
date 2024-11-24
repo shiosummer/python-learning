@@ -31,5 +31,6 @@ def main():
   elif choice == '6':
    exit_system()
 
+#运行点餐系统
 if __name__ == '__main__':
  main()
