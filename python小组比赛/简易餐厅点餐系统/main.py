@@ -1,10 +1,8 @@
 from module import load_dishes,save_dishes,add_dishes,edit_price,view_menu,order_menu,cancel_order,check_order,check_pay,load_main_menu,exit_system,usr_password
 
-if __name__ == '__main__':
+def main():
  load_main_menu()#加载主菜单(假进度条)
  menu_tpye=usr_password()
-
-
  #进入管理员界面
  while menu_tpye == 1:
    choice = input('\n管理员界面：\n1.添加菜品\n2.修改菜品单价/库存\n3.查看菜单\n4.退出系统\n请选择功能:')
@@ -16,7 +14,6 @@ if __name__ == '__main__':
     view_menu()
    elif choice == '4':
     exit_system()
-
   #进入顾客界面
  while menu_tpye==0:
   choice = input('\n顾客界面：\n1.查看菜单\n2.创建订单\n3.查看订单\n4.取消点餐\n5.结账\n6.退出系统\n请选择功能:')
@@ -33,3 +30,6 @@ if __name__ == '__main__':
    check_pay()
   elif choice == '6':
    exit_system()
+
+if __name__ == '__main__':
+ main()
