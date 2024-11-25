@@ -133,8 +133,8 @@ def usr_password():
         if user == 'admin':
             password = input(f'请输入用户密码(剩余次数{3-i})：')
             if password == 'sa123456':
-                print('管理员登陆成功')
+                print(f'管理员登陆成功\n您好,管理员{user}!')
                 return 1
-    print(f'您好,{user},进入顾客模式')
+    print(f'您好,顾客{user}!')
     return 0
 ###用户登录(进入管理员界面或顾客界面)###
