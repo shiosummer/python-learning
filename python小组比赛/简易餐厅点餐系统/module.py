@@ -5,7 +5,7 @@ order = {"items": [],"total_price": 0}
 
 def load_dishes():
     dishes = []
-    with open('dishes.txt', 'r', encoding='utf-8') as f:
+    with open(data, 'r', encoding='utf-8') as f:
         for line in f:
             name,price,stock = line.strip().split(' ')
             dishes.append({"name":name,"price":float(price),"stock":int(stock)})
