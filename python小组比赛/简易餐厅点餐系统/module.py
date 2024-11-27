@@ -90,7 +90,7 @@ def cancel_order(name,cancel_quantity):
 
 def check_order():
     for item in order["items"]:
-        print(f'{item['name']} -数量:{item['quantity']} -单价:{item['price']}')
+        print(f"{item['name']} -数量:{item['quantity']} -单价:{item['price']}")
     print(f'菜品总价为:{order["total_price"]}')
 ###打印订单详情###
 def check_pay():
