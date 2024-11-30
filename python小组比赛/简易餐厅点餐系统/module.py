@@ -74,11 +74,16 @@ def cancel_order(name,cancel_quantity):
     for item in order["items"]:
         if item['name'] == name:
             quantity = item['quantity'] - cancel_quantity
-            order["total_price"] -= item['price'] * cancel_quantity
             if quantity > 0:
                 item["quantity"] = quantity
+                order["total_price"] -= item['price'] * cancel_quantity
+            elif quantity == 0:
+                item['quantity'] = quantity
+                order['total_price'] -= item['price'] * cancel_quantity
+                order['items'].remove(item)
+            else:
+                print('取消点餐数量大于已点数量，取消点餐失败')
                 return
-            order['items'].remove(item)
     for dish in dishes:
         if dish['name'] == name:
             dish['stock'] += cancel_quantity
@@ -115,7 +120,6 @@ def load_main_menu():
     for i in range(51):
         str1 = '*' * (i//2)
         str2 = '.' * ((x - i)//2)
-        str3 = int((i / x) * 100)
         print(f'\r[{str1}{str2}]', end='')
         time.sleep(0.02)
     print('\n' + '-' * 4 + '欢迎使用Lumine点餐系统' + '-' * 4)
