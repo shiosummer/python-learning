@@ -8,7 +8,7 @@ def printf(output,str,acsiii):
 
 if __name__ == '__main__':
     output=''
-    needoutput='Hello world!And I like Python!'
+    needoutput='Hello world!'
     for str in (needoutput):
         output+=printf(output,str,32)
         time.sleep(0.5)
